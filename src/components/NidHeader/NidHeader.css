@@ -1,0 +1,128 @@
+/* nid layout */
+.nid_layout {
+  width: 823px;
+  height: 260px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.nid_fornt {
+  width: 408px;
+  border: 2px solid black;
+}
+.nid_header {
+  height: 80px;
+  border-bottom: 2px solid #000;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+.nid_img img {
+  width: 45px;
+  height: 45px;
+}
+.nid_content {
+}
+.nid_content p:first-child {
+  font-weight: 600;
+}
+.nid_content p:nth-child(2) {
+  font-size: 14px;
+  color: green;
+  font-weight: 500;
+}
+.nid_content p:last-child {
+  font-size: 12px;
+  font-weight: 500;
+}
+.nid_content p:last-child span {
+  color: red;
+}
+
+/* voter */
+.voter {
+}
+.voter_img {
+  margin: 3px;
+}
+.voter_img img {
+  width: 85px;
+  height: 95px;
+}
+.nid_voter_details {
+  display: flex;
+}
+.voter_content {
+  margin-left: 10px;
+  line-height: 28px;
+}
+.voter_name_bangla span {
+  font-weight: bold;
+  margin-left: 15px;
+  font-size: 15px;
+}
+.voter_name_english span {
+  font-weight: 500;
+  font-size: 17px;
+}
+.voter_father_name span {
+  font-size: 14px;
+}
+.voter_mother_name span {
+  font-size: 14px;
+  margin-left: 10px;
+}
+.voter_date {
+  color: red;
+}
+.voter_id_no {
+  line-height: 15px;
+}
+.voter_id span {
+  color: red;
+  font-weight: bold;
+}
+
+/* nid back */
+.nid_back {
+  width: 408px;
+  border: 2px solid black;
+}
+.nid_back_header {
+  font-size: 11px;
+  border-bottom: 2px solid black;
+  line-height: 18px;
+  padding: 5px;
+}
+.voter_address {
+  font-size: 11px;
+  display: flex;
+  margin: 5px;
+}
+.voter_extra_details {
+  display: flex;
+  font-size: 11px;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+}
+.blood_group {
+  margin-left: 5px;
+}
+.mudron {
+  background-color: black;
+  color: white;
+}
+.officer_signature {
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.singnature {
+  margin-left: 5px;
+}
+.qr_code {
+  margin-left: 5px;
+  margin-top: 17px;
+}
