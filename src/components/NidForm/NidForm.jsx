@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 const NidForm = () => {
   const { register, handleSubmit } = useForm();
   const [formData, setFormData] = useState(null);
+  // console.log(formData);
   const navigate = useNavigate();
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    // console.log(data);
     setFormData(data);
+    await new Promise((resolve) => setTimeout(resolve, 500)); // Delay to ensure state update
     navigate("/nid", { state: { formData: data } });
   };
   return (
@@ -22,6 +24,14 @@ const NidForm = () => {
             {...register("voterBanglaName")}
           />
         </div>
+        {/* <FormText
+          htmlFor="voterBanglaName"
+          label="নাম: "
+          type="text"
+          name="voterBanglaName"
+          id="voterBanglaName"
+          {...register("voterBanglaName")}
+        /> */}
         <div className="voter_name_english mt-5">
           <label htmlFor="voterEnglishName">Name: </label>
           <input
@@ -58,7 +68,7 @@ const NidForm = () => {
             {...register("voterdateOfBirthName")}
           />
         </div>
-        <div className="voter_id_no mt-5">
+        <div className="voter_id_no mt-5 mb-5">
           <label htmlFor="voterIDNo">ID NO.: </label>
           <input
             type="text"
@@ -67,11 +77,71 @@ const NidForm = () => {
             {...register("voterIDNo")}
           />
         </div>
+        {/* <FileUpload
+          name="voterImage"
+          id="voterImage"
+          imgFilehandler={imgFilehandler}
+          imgfile={imgfile}
+          {...register("voterImage")}
+        /> */}
+        <div>
+          <label htmlFor="voterImage">Voter Image: </label>
+          <input
+            type="file"
+            name="voterImage"
+            id="voterImage"
+            {...register("voterImage")}
+          />
+        </div>
+        <div className="mt-5">
+          <label htmlFor="voterSignature">Voter Signature: </label>
+          <input
+            type="file"
+            name="voterSignature"
+            id="voterSignature"
+            {...register("voterSignature")}
+          />
+        </div>
+        <div className="voter_adress mt-5 mb-5">
+          <label htmlFor="voterAdress">Address : </label>
+          <input
+            type="text"
+            name="voterAdress"
+            id="voterAdress"
+            {...register("voterAdress")}
+          />
+        </div>
+        <div className="blood_group mt-5 mb-5">
+          <label htmlFor="bloodGroup">রক্তের গ্রুপ / Blood Group: </label>
+          <input
+            type="text"
+            name="bloodGroup"
+            id="bloodGroup"
+            {...register("bloodGroup")}
+          />
+        </div>
+        <div className="birth_place mt-5 mb-5">
+          <label htmlFor="birthPlace">জন্মস্থান: </label>
+          <input
+            type="text"
+            name="birthPlace"
+            id="birthPlace"
+            {...register("birthPlace")}
+          />
+        </div>
+        <div>
+          <label htmlFor="voterImage">Officer Singnature: </label>
+          <input
+            type="file"
+            name="officerSingnature"
+            id="officerSingnature"
+            {...register("officerSingnature")}
+          />
+        </div>
         <div className="submit_btn mt-8 border p-3 w-fit">
           <button type="submit">Submit</button>
         </div>
       </form>
-      {/* {formData && <NidHeader formData={formData} />} */}
     </div>
   );
 };

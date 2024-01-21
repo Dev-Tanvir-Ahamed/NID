@@ -3,17 +3,15 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { useLocation } from "react-router-dom";
-import bdImage from "../../assets/bdb.jpeg";
-import officerSignature from "../../assets/oficerSingnature.png";
+import bd from "../../assets/bd.jpg";
 import qrCode from "../../assets/qrCode.png";
-import voterSignature from "../../assets/signature.png";
-import voterImg from "../../assets/voterPic.jpeg";
 import "./NidHeader.css";
 // eslint-disable-next-line react/prop-types
 const NidHeader = () => {
   const location = useLocation();
   const formData = location.state?.formData;
-  console.log("NidHeader", formData);
+  console.log("NidHeader", formData.voterImage[0]);
+
   return (
     <div>
       {/* layout */}
@@ -23,7 +21,7 @@ const NidHeader = () => {
           {/* nid fornt header */}
           <div className="nid_header">
             <div className="nid_img">
-              <img src={bdImage} alt="bd img" />
+              <img src={bd} alt="" />
             </div>
             <div className="nid_content">
               <p>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</p>
@@ -38,10 +36,20 @@ const NidHeader = () => {
             {/* nid voter img and signature */}
             <div className="voter">
               <div className="voter_img">
-                <img src={voterImg} alt="voter picture" />
+                {formData?.voterImage && (
+                  <img
+                    src={URL.createObjectURL(formData.voterImage[0])}
+                    alt="voter picture"
+                  />
+                )}
               </div>
               <div className="voter_signature">
-                <img src={voterSignature} alt="voter signature" />
+                {formData?.voterSignature && (
+                  <img
+                    src={URL.createObjectURL(formData.voterSignature[0])}
+                    alt="voter signature"
+                  />
+                )}
               </div>
             </div>
             {/* voter everything details */}
@@ -81,24 +89,27 @@ const NidHeader = () => {
           </div>
           <div className="voter_address mb-6">
             <div className="mr-1">ঠিকানা: </div>
-            <div>
-              বাসা/হোল্ডিং: ৪৬৮, গ্রাম/রাস্তা: এনায়েতনগর, গোদনাইল, ডাকঘর: এল এন
-              সি মিলস ১৪৩২, নারায়ণগঞ্জ সদর, নারায়ণগঞ্জ সিটি
-              কর্পোরেশন,নারায়ণগঞ্জ
-            </div>
+            <div>{formData?.voterAdress}</div>
           </div>
           <div className="voter_extra_details">
-            <div className="blood_group">রক্তের গ্রুপ / Blood Group: </div>
-            <div>জন্মস্থান: নারায়ণগঞ্জ </div>
+            <div className="blood_group">
+              রক্তের গ্রুপ / Blood Group: {formData?.bloodGroup}
+            </div>
+            <div>জন্মস্থান: {formData?.birthPlace} </div>
             <div className="mudron">মুদ্রণ: ০১</div>
           </div>
           <div className="officer_signature">
             <div className="singnature">
               <div>
-                <img src={officerSignature} alt="" />
+                {formData?.officerSingnature && (
+                  <img
+                    src={URL.createObjectURL(formData.officerSingnature[0])}
+                    alt="voter picture"
+                  />
+                )}
               </div>
               <div>
-                <p>প্রদানকারী কর্তৃপক্ষের স্বাক্ষর</p>
+                <p className="">প্রদানকারী কর্তৃপক্ষের স্বাক্ষর</p>
               </div>
             </div>
             <div className="date_of_signature mr-6">

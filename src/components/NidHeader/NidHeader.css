@@ -22,6 +22,10 @@
   width: 45px;
   height: 45px;
 }
+.voter_signature img {
+  width: 69px;
+  height: 17px;
+}
 .nid_content {
 }
 .nid_content p:first-child {
@@ -114,6 +118,7 @@
   color: white;
 }
 .officer_signature {
+  margin-top: 10px;
   font-size: 11px;
   display: flex;
   justify-content: space-between;
@@ -121,6 +126,11 @@
 }
 .singnature {
   margin-left: 5px;
+}
+.singnature img {
+  margin-left: 20px;
+  width: 78px;
+  height: 30px;
 }
 .qr_code {
   margin-left: 5px;
